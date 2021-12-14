@@ -1,137 +1,144 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, FlatList } from 'react-native';
 import {FontAwesome5} from '@expo/vector-icons';
+import Constants from 'expo-constants';
 
 export default function Conteudo() {
+    const conteudo = [
+        {
+          id: 1,
+          nome: 'Tax Gomes',
+          assunto: 'Compra de uma casa...',
+          conteudo: 'Olá, lucas td bem? meu nome é Taz...',
+          src: require('../assets/imagens/taz.jpg'),
+          favorito: 'star',
+          color_fav: '#FFD700',
+        },
+        {
+          id: 2,
+          nome: 'Patolino Pato',
+          assunto: 'Ganhe na mega agora...',
+          conteudo: 'Olá, lucas td bem? meu nome é Pato...',
+          src: require('../assets/imagens/patolino.jpg'),
+          favorito: 'star',
+          color_fav: '#FFD700',
+        },
+        {
+          id: 3,
+          nome: 'Mano Perna',
+          assunto: 'Consorcio Perna',
+          conteudo: 'Olá, lucas td bem? meu nome é Perna...',
+          src: require('../assets/imagens/pernalonga.png'),
+          favorito: 'star',
+          color_fav: 'black',
+        },
+        {
+          id: 4,
+          nome: 'Taz Gomes',
+          assunto: 'Compra de uma moto...',
+          conteudo: 'Olá, lucas td bem? meu nome é Taz...',
+          src: require('../assets/imagens/taz.jpg'),
+          favorito: 'star',
+          color_fav: 'black',
+        },
+        {
+          id: 5,
+          nome: 'Patolino Pato',
+          assunto: 'Fique rico em 1 minuto...',
+          conteudo: 'Olá, lucas td bem? meu nome é Pato...',
+          src: require('../assets/imagens/patolino.jpg'),
+          favorito: 'star',
+          color_fav: 'black',
+        },
+        {
+          id: 6,
+          nome: 'Mano Perna',
+          assunto: 'Consorcio Perna...',
+          conteudo: 'Olá, lucas td bem? meu nome é Perna...',
+          src: require('../assets/imagens/pernalonga.png'),
+          favorito: 'star',
+          color_fav: 'black',
+        },
+        {
+            id: 7,
+            nome: 'Mano Perna',
+            assunto: 'Consorcio Perna...',
+            conteudo: 'Olá, lucas td bem? meu nome é Perna...',
+            src: require('../assets/imagens/pernalonga.png'),
+            favorito: 'star',
+            color_fav: 'black',
+        },
+        {
+            id: 8,
+            nome: 'Mano Perna',
+            assunto: 'Consorcio Perna...',
+            conteudo: 'Olá, lucas td bem? meu nome é Perna...',
+            src: require('../assets/imagens/pernalonga.png'),
+            favorito: 'star',
+            color_fav: 'black',
+        },
+        {
+            id: 9,
+            nome: 'Mano Perna',
+            assunto: 'Consorcio Perna...',
+            conteudo: 'Olá, lucas td bem? meu nome é Perna...',
+            src: require('../assets/imagens/pernalonga.png'),
+            favorito: 'star',
+            color_fav: 'black',
+        },
+        {
+            id: 10,
+            nome: 'Mano Perna',
+            assunto: 'Consorcio Perna...',
+            conteudo: 'Olá, lucas td bem? meu nome é Perna...',
+            src: require('../assets/imagens/pernalonga.png'),
+            favorito: 'star',
+            color_fav: 'black',
+        },
+
+      ];
+
+      function renderItem({ item }) {
+        return <View style={styles.post}>
+                    <View style={styles.postheader}>
+                        <View style={styles.postheaderesquerda}>
+                            <Image source={item.src} style={styles.postheaderimg} />
+                            <View>
+                                <Text style={styles.bold}> {item.nome} </Text>
+                                <Text style={styles.bold2}> {item.assunto} </Text>
+                                <Text> {item.conteudo} </Text>
+                            </View>
+                            
+                        </View>
+                        
+                        <FontAwesome5 name= {item.favorito} size={20} color= {item.color_fav} />
+                    </View>
+                </View>
+        
+      }
+
+
     return(
-
-        <View>
-            
             <View style={styles.conteudo}>
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/taz.jpg')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Tax Gomes</Text>
-                        <Text style={styles.bold2}> Compra de uma casa...</Text>
-                        <Text> Olá, lucas td bem? meu nome é Taz...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
                 
-                </View>
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/patolino.jpg')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Patolino Pato</Text>
-                        <Text style={styles.bold2}> Ganhe na mega agora...</Text>
-                        <Text> Olá, lucas td bem? meu nome é Pato...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
-                
-                </View>
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/pernalonga.png')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Mano Perna</Text>
-                        <Text style={styles.bold2}> Consorcio Perna</Text>
-                        <Text> Olá, lucas td bem? meu nome é Perna...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
-                
-                </View>
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/taz.jpg')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Taz Gomes</Text>
-                        <Text style={styles.bold2}> Compra de uma moto...</Text>
-                        <Text> Olá, lucas td bem? meu nome é Taz...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
-                
-                </View>
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/patolino.jpg')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Patolino Pato</Text>
-                        <Text style={styles.bold2}> Fique rico em 1 minuto...</Text>
-                        <Text> Olá, lucas td bem? meu nome é Pato...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
-                
-                </View>
-
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/pernalonga.png')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Mano Perna</Text>
-                        <Text style={styles.bold2}> Consorcio Perna...</Text>
-                        <Text> Olá, lucas td bem? meu nome é Perna...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
-                
-                </View>
-
-                <View style={styles.post}>
-                <View style={styles.postheader}>
-                    <View style={styles.postheaderesquerda}>
-                    <Image source={require('../assets/imagens/pernalonga.png')} style={styles.postheaderimg} />
-                    <View>
-                        <Text style={styles.bold}> Mano Perna</Text>
-                        <Text style={styles.bold2}> Consorcio Perna...</Text>
-                        <Text> Olá, lucas td bem? meu nome é Perna...</Text>
-                    </View>
-                    
-                    </View>
-                    
-                    <FontAwesome5 name= "star" size={20} color="black" />
-                </View>
-                
-                </View>
-            
+                <FlatList
+                        data={conteudo}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                        showsVerticalScrollIndicator={false}
+                    />
                 
             </View>
-
-        </View>
-
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginTop: Constants.statusBarHeight,
+        backgroundColor: '#fff',
+        
+    },
     padding: {
       padding: 5,
     },

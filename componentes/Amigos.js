@@ -1,40 +1,70 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, FlatList } from 'react-native';
+
 
 
 export default function Amigos() {
+    const amigos = [
+      {
+        id: 1,
+        nome: 'Adicionar',
+        src: require('../assets/imagens/add.png'),
+      },
+      {
+        id: 2,
+        nome: 'Patolino',
+        src: require('../assets/imagens/patolino.jpg'),
+      },
+      {
+        id: 3,
+        nome: 'Taz',
+        src: require('../assets/imagens/taz.jpg'),
+      },
+      {
+        id: 4,
+        nome: 'Longa',
+        src: require('../assets/imagens/pernalonga.png'),
+      },
+      {
+        id: 5,
+        nome: 'Pato',
+        src: require('../assets/imagens/patolino.jpg'),
+      },
+      {
+        id: 6,
+        nome: 'Taz loko',
+        src: require('../assets/imagens/taz.jpg'),
+      },
+    ];
+
+    function renderItem({ item }) {
+      return <View style={styles.story}>
+        <Image source={item.src} style={styles.perfil}/>
+        <Text> {item.nome} </Text>
+      </View>
+    }
+
     return(
+      <View>
+          <View style={styles.padding}>
+              <Text> ENVIO RÁPIDO </Text>
+          </View>
 
-    <View>
-        <View style={styles.padding}>
-            <Text> ENTRADA </Text>
-        </View>
+          <View style={styles.stories}>
+              <FlatList
+                data={amigos}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+              />
+          </View>
 
-        <View style={styles.stories}>
-            <View style={styles.story}>
-            <Image source={require('../assets/imagens/add.png')} style={styles.perfil}/>
-            <Text> Adicionar </Text>
-            </View>
-            <View style={styles.story}>
-            <Image source={require('../assets/imagens/patolino.jpg')} style={styles.perfil}/>
-            <Text> Patolino </Text>
-            </View>
-            <View style={styles.story}>
-            <Image source={require('../assets/imagens/taz.jpg')} style={styles.perfil}/>
-            <Text> Taz </Text>
-            </View>
-            <View style={styles.story}>
-            <Image source={require('../assets/imagens/pernalonga.png')} style={styles.perfil}/>
-            <Text> Longa 1 </Text>
-            </View>
-            <View style={styles.story}>
-            <Image source={require('../assets/imagens/patolino.jpg')} style={styles.perfil}/>
-            <Text> Patolino 2 </Text>
-            </View>
-        </View>
+          <View style={styles.padding}>
+              <Text> ENTRADA </Text>
+          </View>
 
-
-    </View>
+      </View>
 
     );
 }
@@ -60,6 +90,8 @@ const styles = StyleSheet.create({
       paddingRight: 10,
       flexDirection: 'row',
       marginBottom: 10,
+      borderBottomColor: '#F5F5F5',
+      
     },
     story: {
       height: 90,

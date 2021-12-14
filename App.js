@@ -7,7 +7,7 @@ import Constants from 'expo-constants';
 //Componentes da pagina
 import Header from './componentes/Header';
 import Amigos from './componentes/Amigos';
-import Conteudo from './componentes/Conteudo'
+import Conteudo from './componentes/Conteudo';
 
 export default function App() {
   return (
