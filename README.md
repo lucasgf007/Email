@@ -4,13 +4,15 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="assets/imagens/app.png" alt="App">
+<img src="assets/imagens/app.png" alt="App"> 
+- 1º Tela
 <img src="assets/imagens/app2.png" alt="App">
+- 2º Tela
 
 > O projeto consiste em um aplicativo mobile para dispositivos android, onde imita as funcionalidades do Email.
 
-## Vídeo explicativo (em breve)
-[Clique](#)
+## Vídeo explicativo
+[Ver Vídeo](https://youtu.be/md4d2Ur4v6g)
 
 ### Ajustes e melhorias
 
@@ -20,6 +22,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Conexão com servidor
 - [x] Página de Leitura
 - [x] Vídeo explicativo
+- [ ] Botão de favorito
 - [ ] Página de Envio
 - [ ] Deixar 100% funcional
 
