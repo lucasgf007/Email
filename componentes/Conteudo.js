@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, Image, View, FlatList, TouchableOpacity } from 'react-native';
 import {FontAwesome5} from '@expo/vector-icons';
 import Constants from 'expo-constants';
+import Email from '../screen/Email';
 
 export default function Conteudo({navigation}) {
 
@@ -22,7 +23,7 @@ export default function Conteudo({navigation}) {
 
       function renderItem({ item }) {
         return <View style={styles.post} >
-                  <TouchableOpacity onPress={() => navigation.navigate('Email')}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Email', {id: item.id})}>
                       <View style={styles.postheader} >
                           <View style={styles.postheaderesquerda}>
                               <Image source={{ uri: item.picture}} style={styles.postheaderimg}  />

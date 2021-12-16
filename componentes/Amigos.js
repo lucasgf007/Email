@@ -27,13 +27,14 @@ export default function Amigos({navigation}) {
 
 
     function renderItem({ item }) {
-      return <View style={styles.story}>
-        <TouchableOpacity onPress={() => navigation.navigate('Envio')}>
-          <Image source={{ uri: item.picture}} style={styles.perfil}/>
-          <Text> {item.to} </Text>
-        </TouchableOpacity>
-        
-      </View>
+      return <TouchableOpacity onPress={() => navigation.navigate('Envio')}>
+              <View style={styles.story}>
+
+                  <Image source={{ uri: item.picture}} style={styles.perfil}/>
+                  <Text> {item.to} </Text>
+
+              </View>
+            </TouchableOpacity>
     }
 
     return(
