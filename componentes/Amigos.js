@@ -1,46 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, Image, View, FlatList } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, Image, View, FlatList, TouchableOpacity } from 'react-native';
 
 
 
-export default function Amigos() {
-    const amigos = [
+export default function Amigos({navigation}) {
+  const [amigos, setAmigos] = useState([])
+
+  useEffect(function(){
+    async function getData() {
+      const response = await fetch('https://mobile.ect.ufrn.br:3002/emails') // vai esperar executar nessa linha
+      const amigosServidor = await response.json()
+
+      setAmigos(amigosServidor)
+    }
+    getData()
+  }, [])
+
+    const amigos2 = [
       {
-        id: 1,
+        id: 14,
         nome: 'Adicionar',
         src: require('../assets/imagens/add.png'),
       },
-      {
-        id: 2,
-        nome: 'Patolino',
-        src: require('../assets/imagens/patolino.jpg'),
-      },
-      {
-        id: 3,
-        nome: 'Taz',
-        src: require('../assets/imagens/taz.jpg'),
-      },
-      {
-        id: 4,
-        nome: 'Longa',
-        src: require('../assets/imagens/pernalonga.png'),
-      },
-      {
-        id: 5,
-        nome: 'Pato',
-        src: require('../assets/imagens/patolino.jpg'),
-      },
-      {
-        id: 6,
-        nome: 'Taz loko',
-        src: require('../assets/imagens/taz.jpg'),
-      },
+      
     ];
+
 
     function renderItem({ item }) {
       return <View style={styles.story}>
-        <Image source={item.src} style={styles.perfil}/>
-        <Text> {item.nome} </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Envio')}>
+          <Image source={{ uri: item.picture}} style={styles.perfil}/>
+          <Text> {item.to} </Text>
+        </TouchableOpacity>
+        
       </View>
     }
 
@@ -51,7 +43,13 @@ export default function Amigos() {
           </View>
 
           <View style={styles.stories}>
+              <View style={styles.story}>
+                <Image source={require('../assets/imagens/add.png')} style={styles.perfil}/>
+                <Text> Adicionar </Text>
+              </View>
+
               <FlatList
+                data={amigos2}
                 data={amigos}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

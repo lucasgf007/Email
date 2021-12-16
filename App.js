@@ -1,44 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Constants from 'expo-constants';
+import React from "react";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "./screen/Home";
+import Email from "./screen/Email";
+import Envio from "./screen/Envio";
 
-//Componentes da pagina
-import Header from './componentes/Header';
-import Amigos from './componentes/Amigos';
-import Conteudo from './componentes/Conteudo';
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      
-      <Header/>
-      <Amigos/>
-      <Conteudo/>
-      
-    </View>
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+        <Stack.Screen name="Email" component={Email} options={{ title: 'Voltar' }}/>
+        <Stack.Screen name="Envio" component={Envio} options={{ title: 'Voltar' }} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: Constants.statusBarHeight,
-    backgroundColor: '#fff',
-    
-  },
-  padding: {
-    padding: 5,
-  },
-  bold: {
-    fontWeight: "bold",
-    fontSize: 18,
-  },
-  bold2: {
-    fontWeight: "bold",
-    fontSize: 15,
-  },
-
-});
