@@ -5,6 +5,7 @@
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
 <img src="assets/imagens/app.png" alt="App">
+<img src="assets/imagens/app2.png" alt="App">
 
 > O projeto consiste em um aplicativo mobile para dispositivos android, onde imita as funcionalidades do Email.
 
